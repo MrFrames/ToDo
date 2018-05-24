@@ -1,0 +1,25 @@
+body {
+    background: white url("back.jpg");
+}
+
+td a{
+    color:black;
+    text-decoration:underline;
+}
+
+.high {
+    background-color:Brown;
+    color:white;
+}
+.high a{
+    color:white
+}
+
+.low {
+    background-color:lightGreen;
+}
+
+
+.medium {
+    background-color:khaki;
+}

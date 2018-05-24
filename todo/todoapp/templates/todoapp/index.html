@@ -1,0 +1,59 @@
+{% extends 'todoapp/base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    {% block body %}
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $("button").click(function() {
+            $(".active").css("display", "none");
+            });
+    </script>
+</head>
+<body>
+    <p class="test">
+        some Fucking text
+    </p>
+    <br />
+    <br />
+    <div class="container">
+        <h2>Todays List</h2>
+        <p>Lets get things done</p>
+        <!-- table below contains all todo objects -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Task Name</th>
+                    <th>Task Priority</th>
+                    <th>Info</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- checks for content -->
+                {% if object_list %}
+                    <!-- if content present, loops through each task &
+                    constructs a row for each one -->
+                    {% for task in object_list %}
+                        <tr class="active {{task.task_priority}}">
+                            <td><a href="{% url 'todoapp:detail' task.id %}">{{task.task_name}}</a></td>
+                            <td><b>{{ task.task_priority }}</b></td>
+                            <td class="info">{{ task.task_info }}</td>
+                            <td>
+                                    <button type="submit"
+                                            class="btn btn-secondary">
+                                        Done
+                            </button></td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'todoapp/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+    {% block body %}
+<head>
+    <meta charset="UTF-8">
+    <title>{{task.task_name}}</title>
+</head>
+<body>
+    <h2>{{task.task_name}}</h2>
+    <p>Priority: {{task.task_priority}}</p>
+    {% endblock %}
+</body>
+</html>
